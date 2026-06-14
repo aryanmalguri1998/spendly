@@ -1,0 +1,207 @@
+/* ------------------------------------------------------------------ */
+/* Landing hero (redesign)                                             */
+/* ------------------------------------------------------------------ */
+
+.hero-v2 {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 4.5rem;
+    text-align: center;
+}
+
+.hero-v2-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* Badge ------------------------------------------------------------- */
+
+.hero-v2-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: #d9efe1;
+    color: #2c7a52;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 1.15rem;
+    border-radius: 999px;
+    margin-bottom: 2rem;
+}
+
+.hero-v2-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #2c7a52;
+}
+
+/* Title ------------------------------------------------------------- */
+
+.hero-v2-title {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: clamp(2.75rem, 6.5vw, 4.5rem);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1.75rem;
+}
+
+.hero-v2-title-accent {
+    color: #2f8a5f;
+}
+
+/* Subtitle ---------------------------------------------------------- */
+
+.hero-v2-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+}
+
+/* Actions ----------------------------------------------------------- */
+
+.hero-v2-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-v2-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.9rem 1.7rem;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.hero-v2-btn:hover {
+    background: #000000;
+}
+
+/* ------------------------------------------------------------------ */
+/* Dashboard mock                                                      */
+/* ------------------------------------------------------------------ */
+
+.hero-v2-dashboard {
+    max-width: 1000px;
+    margin: 4rem auto 0;
+    background: #f3f1ec;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.dash-dots {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem 1.25rem;
+}
+
+.dash-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+}
+
+.dash-dot-r { background: #ec7468; }
+.dash-dot-y { background: #ecc14e; }
+.dash-dot-g { background: #7fd0a4; }
+
+/* Stat cards -------------------------------------------------------- */
+
+.dash-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.dash-stat {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.35rem;
+}
+
+.dash-stat-label {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.55rem;
+}
+
+.dash-stat-value {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+}
+
+.dash-stat-delta {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.55rem;
+}
+
+.dash-up { color: var(--danger); }
+.dash-good { color: #2c7a52; }
+.dash-muted { color: var(--ink-faint); }
+
+/* Bars -------------------------------------------------------------- */
+
+.dash-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+}
+
+.dash-bar-row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.dash-bar-label {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    text-align: right;
+}
+
+.dash-bar-track {
+    height: 10px;
+    background: #e7e3db;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.dash-bar {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.dash-bar-food { background: #e7a93a; }
+.dash-bar-travel { background: #4f8ed6; }
+.dash-bar-bills { background: #7b6fd4; }
+
+/* Responsive -------------------------------------------------------- */
+
+@media (max-width: 760px) {
+    .dash-stats { grid-template-columns: 1fr; }
+    .hero-v2-actions { flex-direction: column; align-items: center; }
+}
