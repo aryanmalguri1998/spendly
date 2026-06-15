@@ -119,7 +119,53 @@ def logout():
 
 @app.route("/profile")
 def profile():
-    return "Profile page — coming in Step 4"
+    # Logged-in only — bounce anonymous visitors to the sign-in page.
+    if not session.get("user_id"):
+        return redirect(url_for("login"))
+
+    # Step 4 is UI-only: every value below is hardcoded. Step 5 swaps this
+    # block for real queries against the users/expenses tables via get_db().
+    user = {
+        "name": session.get("user_name", "Demo User"),
+        "email": "demo@spendly.com",
+        "initials": "DU",
+        "member_since": "January 2026",
+    }
+
+    stats = [
+        {"label": "Total spent", "value": "₹48,250"},
+        {"label": "Transactions", "value": "24"},
+        {"label": "Top category", "value": "Food & Dining"},
+    ]
+
+    transactions = [
+        {"date": "12 Jun 2026", "description": "Grocery run — DMart",
+         "category": "Groceries", "slug": "groceries", "amount": "₹2,340"},
+        {"date": "10 Jun 2026", "description": "Dinner at Truffles",
+         "category": "Food & Dining", "slug": "food", "amount": "₹1,180"},
+        {"date": "08 Jun 2026", "description": "Metro card recharge",
+         "category": "Transport", "slug": "transport", "amount": "₹500"},
+        {"date": "05 Jun 2026", "description": "Netflix subscription",
+         "category": "Entertainment", "slug": "entertainment", "amount": "₹649"},
+        {"date": "02 Jun 2026", "description": "Electricity bill",
+         "category": "Utilities", "slug": "utilities", "amount": "₹1,890"},
+    ]
+
+    categories = [
+        {"name": "Food & Dining", "slug": "food", "amount": "₹18,400", "percent": 38},
+        {"name": "Groceries", "slug": "groceries", "amount": "₹12,100", "percent": 25},
+        {"name": "Transport", "slug": "transport", "amount": "₹7,250", "percent": 15},
+        {"name": "Utilities", "slug": "utilities", "amount": "₹6,300", "percent": 13},
+        {"name": "Entertainment", "slug": "entertainment", "amount": "₹4,200", "percent": 9},
+    ]
+
+    return render_template(
+        "profile.html",
+        user=user,
+        stats=stats,
+        transactions=transactions,
+        categories=categories,
+    )
 
 
 @app.route("/expenses/add")

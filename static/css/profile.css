@@ -1,0 +1,274 @@
+/* ------------------------------------------------------------------ */
+/* Profile page                                                        */
+/* ------------------------------------------------------------------ */
+
+/* Category accent tokens — scoped here so profile.html never holds hex. */
+:root {
+    --cat-food: #c17f24;
+    --cat-groceries: #1a472a;
+    --cat-transport: #5b7fa6;
+    --cat-utilities: #8b5e83;
+    --cat-entertainment: #b0552e;
+}
+
+.profile {
+    padding: 3rem 2rem 4rem;
+}
+
+.profile-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.profile-head {
+    margin-bottom: 2rem;
+}
+
+.profile-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+}
+
+.profile-sub {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+}
+
+/* Shared card shell */
+.profile-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* User info card                                                      */
+/* ------------------------------------------------------------------ */
+
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.user-avatar {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+.user-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+}
+
+.user-email {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.35rem;
+}
+
+.user-since {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+}
+
+/* ------------------------------------------------------------------ */
+/* Summary stats row                                                   */
+/* ------------------------------------------------------------------ */
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.stat-value {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ */
+/* Two-column grid: transactions + categories                          */
+/* ------------------------------------------------------------------ */
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.card-heading {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Transaction table                                                   */
+/* ------------------------------------------------------------------ */
+
+.tx-scroll {
+    overflow-x: auto;
+}
+
+.tx-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.tx-table th {
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    padding: 0 0.75rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.tx-table td {
+    padding: 0.85rem 0.75rem;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--ink-soft);
+    vertical-align: middle;
+}
+
+.tx-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tx-table tbody tr:hover {
+    background: var(--paper-warm);
+}
+
+.tx-date {
+    color: var(--ink-muted);
+    white-space: nowrap;
+}
+
+.tx-table .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Category badges                                                     */
+/* ------------------------------------------------------------------ */
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--paper-card);
+}
+
+.badge-food { background: var(--cat-food); }
+.badge-groceries { background: var(--cat-groceries); }
+.badge-transport { background: var(--cat-transport); }
+.badge-utilities { background: var(--cat-utilities); }
+.badge-entertainment { background: var(--cat-entertainment); }
+
+/* ------------------------------------------------------------------ */
+/* Category breakdown                                                  */
+/* ------------------------------------------------------------------ */
+
+.cat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.cat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.cat-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+}
+
+.cat-amt {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.cat-track {
+    height: 8px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.cat-bar {
+    height: 100%;
+    border-radius: 999px;
+}
+
+/* Step 4 widths are baked in (hardcoded data); Step 5 makes these dynamic. */
+.bar-food { width: 38%; background: var(--cat-food); }
+.bar-groceries { width: 25%; background: var(--cat-groceries); }
+.bar-transport { width: 15%; background: var(--cat-transport); }
+.bar-utilities { width: 13%; background: var(--cat-utilities); }
+.bar-entertainment { width: 9%; background: var(--cat-entertainment); }
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+    .profile-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .profile { padding: 2rem 1rem 3rem; }
+    .user-card { flex-direction: column; text-align: center; }
+}
